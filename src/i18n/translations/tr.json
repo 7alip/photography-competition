@@ -1,0 +1,13 @@
+{
+  "translation": {
+    "hello": "Merhaba",
+    "auth": {
+      "login": "Giriş",
+      "logout": "Çıkış",
+      "connect_to": "Giriş"
+    },
+    "request_apply": "Başvuru yapmak istiyorum",
+    "request_voting": "Oy vermek istiyorum",
+    "welcome": "Hoşgeldiniz"
+  }
+}

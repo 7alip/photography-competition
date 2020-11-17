@@ -1,0 +1,14 @@
+{
+  "translation": {
+    "hello": "Hallo",
+    "auth": {
+      "login": "Inloggen",
+      "logout": "Uitloggen",
+      "connect_to": "Verbinden aan",
+      "language": "Taal"
+    },
+    "request_apply": "Ik wil me aanmelden",
+    "request_voting": "Ik wil stemmen",
+    "welcome": "Welkom"
+  }
+}

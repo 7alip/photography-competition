@@ -1,0 +1,14 @@
+{
+  "translation": {
+    "hello": "Hello",
+    "auth": {
+      "login": "Login",
+      "logout": "Logout",
+      "connect_to": "Connect to",
+      "language": "Language"
+    },
+    "request_apply": "I want to apply",
+    "request_voting": "I want to vote",
+    "welcome": "Welcome"
+  }
+}
