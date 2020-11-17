@@ -27,15 +27,13 @@ const LoginRedirect = () => {
 
         const { jwt, user } = await res.json()
 
-        if (jwt) {
-          // Successfully logged with Strapi
-          // Now saving the jwt to use it for future authenticated requests to Strapi
-          dispatch(login({ token: jwt, user }))
-          setText(
-            'You have been successfully logged in. You will be redirected in a few seconds...'
-          )
-          setTimeout(() => history.push('/'), 3000) // Redirect to homepage after 3 sec
-        } else dispatch(loginFails('Hata olustu'))
+        // Successfully logged with Strapi
+        // Now saving the jwt to use it for future authenticated requests to Strapi
+        dispatch(login({ token: jwt, user }))
+        setText(
+          'You have been successfully logged in. You will be redirected in a few seconds...'
+        )
+        setTimeout(() => history.push('/'), 3000) // Redirect to homepage after 3 sec
       } catch (error) {
         console.error('error', error)
         dispatch(loginFails('Hata olustu'))
