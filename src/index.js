@@ -2,11 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { ChakraProvider } from '@chakra-ui/react'
+
+import './i18n'
 import App from './App'
 import store from './store'
-import * as serviceWorker from './serviceWorker'
 import theme from './theme'
-import './i18n'
+import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
   <React.StrictMode>

@@ -16,6 +16,10 @@ i18n
     fallbackLng: 'tr',
     debug: true,
     preload: ['tr', 'en', 'nl'],
+    react: {
+      wait: true,
+      useSuspense: false,
+    },
   })
 
 export default i18n

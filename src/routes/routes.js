@@ -1,8 +1,9 @@
-import Test from '../pages/test'
-import Home from '../pages/home'
-import NotFound from '../pages/not-found'
-import LoginRedirect from '../pages/login-redirect'
-import Login from '../pages/login'
+import { lazy } from 'react'
+
+const Home = lazy(() => import('../pages/home'))
+const NotFound = lazy(() => import('../pages/not-found'))
+const LoginRedirect = lazy(() => import('../pages/login-redirect'))
+const Login = lazy(() => import('../pages/login'))
 
 const routes = [
   {
@@ -13,11 +14,6 @@ const routes = [
   {
     path: '/connect/:providerName/redirect',
     component: LoginRedirect,
-  },
-  {
-    path: '/competition',
-    component: Test,
-    isPrivate: true,
   },
   {
     path: '/login',
