@@ -3,7 +3,7 @@ import { Button, Divider, Flex, Heading, VStack } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
 import { SiTwitter, SiFacebook, SiGoogle } from 'react-icons/si'
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:1337'
+const backendUrl = process.env.REACT_APP_BACKEND_URL
 
 const Login = () => {
   const providers = [

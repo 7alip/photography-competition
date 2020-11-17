@@ -3,8 +3,7 @@ import { useHistory, useLocation, useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { loginFails, login } from '../store/auth/actions'
 
-const backendUrl =
-  process.env.REACT_APP_BACKEND_URL || 'https://3489a83fd08d.ngrok.io'
+const backendUrl = process.env.REACT_APP_BACKEND_URL
 
 const LoginRedirect = () => {
   const [text, setText] = useState('Loading...')
