@@ -13,7 +13,7 @@ import LanguageSwitcher from './language-switcher'
 const Navbar = () => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const { isLoggedIn } = useSelector(state => state.auth.isLoggedIn)
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
 
   return (
     <Container

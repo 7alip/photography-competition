@@ -1,6 +1,5 @@
 export const authReducers = {
   login: (state, action) => {
-    console.log('action', action)
     state.token = action.payload.token
     state.user = action.payload.user
     state.isLoggedIn = true
