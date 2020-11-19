@@ -20,7 +20,7 @@ const Competition = () => {
           `${process.env.REACT_APP_BACKEND_URL}/competitions?owner=${user.id}`
         )
 
-        if (res.data && res.data[0] && res.data[0].length === 0) {
+        if (res.data && res.data[0] && res.data[0].length !== 0) {
           return setHasApplied(true)
         }
 
