@@ -9,6 +9,22 @@
     },
     "request_apply": "I want to apply",
     "request_voting": "I want to vote",
-    "welcome": "Welcome"
+    "welcome": "Welcome",
+    "form": {
+      "fullname": "Name Surname",
+      "photo_title": "Photo Title",
+      "story": "Story of the Photo",
+      "phone": "Phone",
+      "photo": "Photo",
+      "accept": "I read and accept terms and conditions",
+      "apply": "Apply",
+      "errors": {
+        "name_required": "Full name is required",
+        "title_required": "Photo title is required",
+        "accept_required": "Please confirm",
+        "photo_required": "Please pick a photo",
+        "photo_size": "Pick an image with a maximum size of 5MB"
+      }
+    }
   }
 }

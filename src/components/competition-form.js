@@ -17,89 +17,95 @@ import {
   Flex,
   Image,
   useDisclosure,
+  Textarea,
 } from '@chakra-ui/react'
 import { FaEnvelope, FaPhone } from 'react-icons/fa'
 import { useForm } from 'react-hook-form'
 import Axios from 'axios'
-import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import TermsModal from './terms-modal'
 import ThemeButton from './theme-button'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { GoLinkExternal } from 'react-icons/go'
+import { useTranslation } from 'react-i18next'
+import { translateFormSchema } from '../lib/translateFormSchema'
 
 const calculatePercent = (value, total) => Math.round((value / total) * 100)
 
-const schema = yup.object().shape({
-  fullName: yup.string().required('Tam adınızı girmeniz zorunludur!'),
-  phone: yup.string(),
-  title: yup
-    .string()
-    .required('Fotoğrafınız için bir başlık belirtmeniz zorunludur!'),
-  description: yup.string(),
-  image: yup
-    .mixed()
-    .required('Please pick a photo')
-    .test(
-      'fileSize',
-      'The file size is too large',
-      value => value && value[0].size <= 2
-    ),
-})
-
-const CompetitionForm = ({ session, userId }) => {
+const CompetitionForm = () => {
   const [percent, setPercent] = useState(0)
-  const [accepted, setAccepted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const [hasApplied, setHasApplied] = useState(false)
-
+  const [successfull, setSuccessfull] = useState(false)
+  const [imagePreview, setImagePreview] = useState(null)
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const { register, handleSubmit, errors, watch } = useForm({
-    mode: 'onBlur',
+  const { user, token } = useSelector(state => state.auth)
+  const { t } = useTranslation()
+  const schema = translateFormSchema(t)
+
+  const { register, handleSubmit, errors } = useForm({
+    mode: 'onTouched',
     resolver: yupResolver(schema),
   })
 
-  const images = watch('image') || []
+  const handleBlurImage = e => {
+    let reader = new FileReader()
+    let file = e.target.files[0]
 
-  console.log('images', images[0])
-  console.log('errors', errors)
+    if (file) {
+      reader.readAsDataURL(file)
 
-  const onSubmit = async data => {
-    console.log('image', data)
-    // const formData = new FormData()
-    // const image = images[0]
-    // formData.append('files.image', image)
-    // formData.append(
-    //   'data',
-    //   JSON.stringify({
-    //     name: fullName,
-    //     phone,
-    //     title,
-    //     owner: userId,
-    //   })
-    // )
-
-    // if (userId) {
-    //   setIsLoading(true)
-    //   try {
-    //     const res = await Axios({
-    //       method: 'post',
-    //       url: `${process.env.REACT_APP_BACKEND_URL}/photos`,
-    //       data: formData,
-    //       onUploadProgress: ({ loaded, total }) =>
-    //         setPercent(calculatePercent(loaded, total)),
-    //     })
-    //     if (res.status === 200) setHasApplied(true)
-    //   } catch (error) {
-    //     console.log('___ERROR___', error.type, error.response, error)
-    //   } finally {
-    //     setIsLoading(false)
-    //   }
-    // }
+      reader.onloadend = () => {
+        setImagePreview(reader.result)
+      }
+    } else {
+      setImagePreview(null)
+    }
   }
 
-  if (hasApplied)
+  const onSubmit = async data => {
+    const { fullName, story, phone, image, title } = data
+    const formData = new FormData()
+
+    formData.append('files.image', image[0])
+
+    formData.append(
+      'data',
+      JSON.stringify({
+        name: fullName,
+        title,
+        story,
+        phone,
+        email: user.email,
+        owner: user.id,
+      })
+    )
+
+    if (user) {
+      setIsLoading(true)
+      try {
+        const res = await Axios({
+          method: 'post',
+          url: `${process.env.REACT_APP_BACKEND_URL}/competitions`,
+          data: formData,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          onUploadProgress: ({ loaded, total }) =>
+            setPercent(calculatePercent(loaded, total)),
+        })
+        if (res.status === 200) setSuccessfull(true)
+      } catch (error) {
+        console.log('___ERROR___', error.type, error.response, error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+  }
+
+  if (successfull)
     return (
       <VStack flex={1} h='full' w='full' align='center' justify='center'>
         <Heading my={3} as='h2' size='lg'>
@@ -129,88 +135,106 @@ const CompetitionForm = ({ session, userId }) => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <HStack>
-            <Avatar name={session?.user?.name} src={session?.user?.image} />
+            <Avatar name={user?.name || user?.username} src={user?.image} />
             <Box ml={3}>
               <Heading as='h4' size='lg'>
-                {session?.user?.name}
+                {user?.name || user?.username}
               </Heading>
-              <Text fontSize='sm'>{session?.user?.email}</Text>
+              <Text fontSize='sm'>{user?.email}</Text>
             </Box>
           </HStack>
+
           <FormControl isInvalid={!!errors.fullName}>
-            <FormLabel>Ad Soyad</FormLabel>
+            <FormLabel>{t('form.fullname')}</FormLabel>
             <InputGroup>
               <InputLeftElement pointerEvents='none'>
-                <FaEnvelope color='gray.300' />
+                <Box color='gray.300'>
+                  <FaEnvelope />
+                </Box>
               </InputLeftElement>
               <Input
                 name='fullName'
                 ref={register}
-                defaultValue={session?.user?.name || ''}
+                defaultValue={user?.name || user?.username || ''}
                 type='text'
-                placeholder='Ad Soyad'
+                placeholder={t('form.fullname')}
               />
             </InputGroup>
             <FormErrorMessage>{errors?.fullName?.message}</FormErrorMessage>
           </FormControl>
 
           <FormControl isInvalid={!!errors.title}>
-            <FormLabel>Fotoğraf Başlığı</FormLabel>
+            <FormLabel>{t('form.photo_title')}</FormLabel>
             <InputGroup>
               <Input
                 name='title'
                 ref={register}
                 type='text'
-                placeholder='Fotoğraf Başlığı'
+                placeholder={t('form.photo_title')}
               />
             </InputGroup>
             <FormErrorMessage>{errors?.title?.message}</FormErrorMessage>
           </FormControl>
 
+          <FormControl isInvalid={!!errors.story}>
+            <FormLabel>{t('form.story')}</FormLabel>
+            <InputGroup>
+              <Textarea
+                name='story'
+                ref={register}
+                type='text'
+                placeholder={t('form.story')}
+              />
+            </InputGroup>
+            <FormErrorMessage>{errors?.story?.message}</FormErrorMessage>
+          </FormControl>
+
           <FormControl>
-            <FormLabel>Telefon</FormLabel>
+            <FormLabel>{t('form.phone')}</FormLabel>
             <InputGroup>
               <InputLeftElement pointerEvents='none'>
-                <FaPhone color='gray.300' />
+                <Box color='gray.300'>
+                  <FaPhone />
+                </Box>
               </InputLeftElement>
               <Input
                 name='phone'
                 ref={register}
                 type='phone'
-                placeholder='Telefon'
+                placeholder={t('form.phone')}
               />
             </InputGroup>
           </FormControl>
 
           <FormControl isInvalid={!!errors.image}>
-            <FormLabel>Photo</FormLabel>
+            <FormLabel>{t('form.photo')}</FormLabel>
             <InputGroup>
-              <Input name='image' ref={register} type='file' />
+              <Input
+                name='image'
+                ref={register}
+                type='file'
+                onBlur={handleBlurImage}
+                accept='image/png, image/jpeg, image/jpg'
+              />
             </InputGroup>
             <FormErrorMessage>{errors?.image?.message}</FormErrorMessage>
           </FormControl>
-          <HStack my={4}>
-            <Checkbox
-              ref={register}
-              name='acc'
-              onChange={e => setAccepted(e.target.checked)}
-            />
-            <Text fontSize='sm'>
-              <Text
+          <FormControl py={4} isInvalid={!!errors.accepted}>
+            <InputGroup>
+              <Checkbox size='lg' ref={register} name='accepted'>
+                <Text fontSize='sm'>{t('form.accept')}</Text>
+              </Checkbox>
+              <Box
+                _hover={{ color: 'light.orange' }}
+                onClick={onOpen}
                 cursor='pointer'
-                fontWeight='bold'
-                onClick={e => {
-                  e.stopPropagation()
-                  onOpen()
-                }}
-                as='span'
-                color='light.orange'
-              >
-                Katılım şartlarını
-              </Text>{' '}
-              okudum ve kabul ediyorum.
-            </Text>
-          </HStack>
+                ml={4}
+                boxSize={4}
+                as={GoLinkExternal}
+              />
+            </InputGroup>
+            <FormErrorMessage>{errors?.accepted?.message}</FormErrorMessage>
+          </FormControl>
 
           <Button
             w='full'
@@ -226,7 +250,7 @@ const CompetitionForm = ({ session, userId }) => {
             type='submit'
             isLoading={isLoading}
           >
-            Apply
+            {t('form.apply')}
           </Button>
           <Progress size='sm' value={percent} />
         </VStack>
@@ -243,7 +267,7 @@ const CompetitionForm = ({ session, userId }) => {
           <Image
             maxH={350}
             objectFit='cover'
-            src={images.length > 0 ? images[0].preview : '/logo.svg'}
+            src={imagePreview || '/logo.svg'}
           />
         </Flex>
       </Box>

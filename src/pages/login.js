@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Divider, Flex, Heading, VStack } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
-import { SiTwitter, SiFacebook, SiGoogle } from 'react-icons/si'
+import { SiTwitter, SiFacebook, SiGoogle, SiInstagram } from 'react-icons/si'
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL
 
@@ -22,6 +22,11 @@ const Login = () => {
       icon: <SiTwitter />,
       colorSchema: 'twitter',
     },
+    {
+      title: 'Instagram',
+      icon: <SiInstagram />,
+      colorSchema: 'pink',
+    },
   ]
 
   const { t } = useTranslation()
@@ -41,7 +46,7 @@ const Login = () => {
           {t('auth.login')}
         </Heading>
         <Divider />
-        <VStack>
+        <VStack w='full'>
           {providers.map(({ title, icon, colorSchema }) => (
             <Button
               w='full'

@@ -8,6 +8,22 @@
     },
     "request_apply": "Başvuru yapmak istiyorum",
     "request_voting": "Oy vermek istiyorum",
-    "welcome": "Hoşgeldiniz"
+    "welcome": "Hoşgeldiniz",
+    "form": {
+      "fullname": "Ad Soyad",
+      "photo_title": "Fotoğraf Başlığı",
+      "story": "Fotoğraf Hikayesi",
+      "phone": "Telefon",
+      "photo": "Fotoğraf",
+      "accept": "Katılım şartlarını okudum ve kabul ediyorum",
+      "apply": "Başvur",
+      "errors": {
+        "name_required": "Tam adinizi girmeniz zorunludur",
+        "title_required": "Fotoğraf başlığı belirtmeniz zorunludur",
+        "accept_required": "Lütfen onaylayınız",
+        "photo_required": "Lütfen bir fotoğraf seçiniz",
+        "photo_size": "Boyutu en fazla 5MB olan bir resim seçiniz"
+      }
+    }
   }
 }

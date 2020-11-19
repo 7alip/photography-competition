@@ -15,7 +15,6 @@ const LanguageSwitcher = () => {
 
   const { locale } = useSelector(state => state.locale)
 
-  console.log('lang', locale)
   const locales = [
     {
       locale: 'tr',
