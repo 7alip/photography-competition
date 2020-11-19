@@ -1,4 +1,5 @@
 import { lazy } from 'react'
+import Competition from '../pages/competition'
 
 const Home = lazy(() => import('../pages/home'))
 const NotFound = lazy(() => import('../pages/not-found'))
@@ -18,6 +19,11 @@ const routes = [
   {
     path: '/login',
     component: Login,
+  },
+  {
+    path: '/competition',
+    component: Competition,
+    // isPrivate: true,
   },
   {
     path: '/*',

@@ -3,16 +3,19 @@ import { Menu, MenuButton, MenuList, MenuItem, Image } from '@chakra-ui/react'
 import tr from '../assets/img/tr.svg'
 import en from '../assets/img/en.svg'
 import nl from '../assets/img/nl.svg'
-import i18n from '../i18n'
+import { useDispatch, useSelector } from 'react-redux'
+import { setLocale } from '../store/locale/actions'
 
 const LanguageSwitcher = () => {
+  const dispatch = useDispatch()
+
   const handleChange = lang => {
-    i18n.changeLanguage(lang)
+    dispatch(setLocale(lang))
   }
 
-  const lang = i18n.language
+  const { locale } = useSelector(state => state.locale)
 
-  console.log('lang', lang)
+  console.log('lang', locale)
   const locales = [
     {
       locale: 'tr',
@@ -36,7 +39,7 @@ const LanguageSwitcher = () => {
       <MenuButton>
         <Image
           boxSize={10}
-          src={lang === 'tr' ? tr : lang === 'en' ? en : nl}
+          src={locale === 'tr' ? tr : locale === 'en' ? en : nl}
         />
       </MenuButton>
       <MenuList>

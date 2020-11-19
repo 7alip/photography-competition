@@ -13,7 +13,7 @@ import LanguageSwitcher from './language-switcher'
 const Navbar = () => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
+  const token = useSelector(state => state.auth.token)
 
   return (
     <Container
@@ -44,7 +44,7 @@ const Navbar = () => {
         </HStack>
       </Link>
       <HStack spacing={3}>
-        {isLoggedIn ? (
+        {token ? (
           <ThemeButton onClick={() => dispatch(logout())}>
             {t('auth.logout')}
           </ThemeButton>

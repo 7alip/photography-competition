@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory, useLocation, useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { loginFails, login } from '../store/auth/actions'
+import { loginFails, loginUser } from '../store/auth/actions'
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL
 
@@ -29,7 +29,7 @@ const LoginRedirect = () => {
 
         // Successfully logged with Strapi
         // Now saving the jwt to use it for future authenticated requests to Strapi
-        dispatch(login({ token: jwt, user }))
+        dispatch(loginUser({ token: jwt, user }))
         setText(
           'You have been successfully logged in. You will be redirected in a few seconds...'
         )

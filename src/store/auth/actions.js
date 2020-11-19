@@ -2,8 +2,9 @@ import { authSlice } from './slice'
 
 export const { login, loginFails, logout, isLoggedIn } = authSlice.actions
 
-export const logoutAsync = () => dispatch => {
-  setTimeout(() => {
-    dispatch(logout)
-  }, 1000)
+export const loginUser = payload => dispatch => {
+  localStorage.setItem('user', JSON.stringify(payload.user))
+  localStorage.setItem('token', JSON.stringify(payload.token))
+
+  dispatch(login(payload))
 }
