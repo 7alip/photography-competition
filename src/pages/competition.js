@@ -10,15 +10,16 @@ import CompetitionForm from '../components/competition-form'
 import { useHistory } from 'react-router-dom'
 import { logoutUser } from '../store/auth/actions'
 import { useTranslation } from 'react-i18next'
+import { saveApplied, saveAppliedPhoto } from '../store/competition/actions'
 
 const Competition = () => {
-  const [appliedPhoto, setAppliedPhoto] = useState(null)
-  const [hasApplied, setHasApplied] = useState(false)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const { user, token } = useSelector(state => state.auth)
   const toast = useToast()
   const history = useHistory()
   const dispatch = useDispatch()
+
+  const { hasApplied, appliedPhoto } = useSelector(state => state.competition)
 
   const { t } = useTranslation()
 
@@ -30,10 +31,9 @@ const Competition = () => {
           { headers: { Authorization: `Bearer ${token}` } }
         )
 
-        setAppliedPhoto(res.data[0]?.image?.url)
-
         if (res.data && res.data[0] && res.data[0].length !== 0) {
-          setHasApplied(true)
+          dispatch(saveAppliedPhoto(res.data[0]?.image?.url))
+          dispatch(saveApplied())
         }
       } catch (error) {
         console.log('error.response', error.response)
@@ -54,8 +54,9 @@ const Competition = () => {
         setLoading(false)
       }
     }
-    checkIfUserHasAlreadyApplied()
-  }, [user?.id, token, toast, t, dispatch, history])
+
+    if (!hasApplied) checkIfUserHasAlreadyApplied()
+  }, [user?.id, token, hasApplied, toast, t, dispatch, history])
 
   if (loading) return <Loader />
 

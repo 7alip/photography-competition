@@ -5,4 +5,6 @@ export const {
   competitionsLoading,
   competitionError,
   loadVotedCompetitions,
+  saveApplied,
+  saveAppliedPhoto,
 } = competitionSlice.actions

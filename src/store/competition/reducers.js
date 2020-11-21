@@ -12,7 +12,13 @@ export const competitionReducers = {
     state.isLoading = false
     state.isError = true
   },
-  loadVotedCompetitions: (state, payload) => {
-    state.votedCompetitions = payload.payload
+  loadVotedCompetitions: (state, action) => {
+    state.votedCompetitions = action.payload
+  },
+  saveApplied: state => {
+    state.hasApplied = true
+  },
+  saveAppliedPhoto: (state, action) => {
+    state.appliedPhoto = action.payload
   },
 }
