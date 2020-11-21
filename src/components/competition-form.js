@@ -29,6 +29,8 @@ import { useTranslation } from 'react-i18next'
 import { translateFormSchema } from '../lib/translateFormSchema'
 import { logoutUser } from '../store/auth/actions'
 import FormField from './form-field'
+import logo from '../assets/img/logo.svg'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const calculatePercent = (value, total) => Math.round((value / total) * 100)
 
@@ -246,9 +248,12 @@ const CompetitionForm = () => {
           h='full'
         >
           <Image
+            as={LazyLoadImage}
+            effect='blur'
+            loading='lazy'
             maxH={350}
             objectFit='cover'
-            src={imagePreview || '/logo.svg'}
+            src={imagePreview || logo}
           />
         </Flex>
       </Box>

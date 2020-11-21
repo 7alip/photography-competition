@@ -37,6 +37,7 @@ const LanguageSwitcher = () => {
     <Menu>
       <MenuButton>
         <Image
+          loading='lazy'
           boxSize={10}
           src={locale === 'tr' ? tr : locale === 'en' ? en : nl}
         />
@@ -49,6 +50,7 @@ const LanguageSwitcher = () => {
             onClick={() => handleChange(locale)}
           >
             <Image
+              loading='lazy'
               boxSize='2rem'
               borderRadius='full'
               src={icon}

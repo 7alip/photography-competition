@@ -2,6 +2,7 @@ import { Box, Heading, Image, VStack } from '@chakra-ui/react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const HomeCard = ({ image, text, to }) => {
   const { t } = useTranslation()
@@ -26,7 +27,14 @@ const HomeCard = ({ image, text, to }) => {
         bg='white'
         boxShadow='md'
       >
-        <Image src={image} w={300} objectFit='cover' />
+        <Image
+          as={LazyLoadImage}
+          effect='blur'
+          loading='lazy'
+          src={image}
+          w={300}
+          objectFit='cover'
+        />
         <Heading as='h3' size='md' mb={3}>
           {t(text)}
         </Heading>

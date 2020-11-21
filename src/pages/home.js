@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Flex, Heading, Image, VStack } from '@chakra-ui/react'
+import { Box, Container, Flex, Heading, Image, VStack } from '@chakra-ui/react'
 
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
@@ -22,20 +22,22 @@ const Home = () => {
   }
 
   return (
-    <VStack mt={4} spacing={8} align='center' justify='center' maxW='full'>
-      {token && (
-        <Heading textAlign='center' as='h3' my={5} size='md'>
-          {t('welcome')} {user.username}
-        </Heading>
-      )}
-      <Box maxW={[300, 400]}>
-        <Image src={coverImageSrc(locale)} alt='cover image' />
-      </Box>
-      <Flex w='full' flexWrap='wrap' align='center' justify='center'>
-        <HomeCard to='/competition' image={photoSVG} text='request_apply' />
-        <HomeCard to='/voting' image={votingSVG} text='request_voting' />
-      </Flex>
-    </VStack>
+    <Container maxW='lg'>
+      <VStack spacing={4} align='center' justify='center' maxW='full'>
+        {token && (
+          <Heading textAlign='center' as='h3' my={2} size='md'>
+            {t('welcome')} {user.username}
+          </Heading>
+        )}
+        <Box maxW={[300, 400]}>
+          <Image loading='lazy' src={coverImageSrc(locale)} alt='cover image' />
+        </Box>
+        <Flex w='full' flexWrap='wrap' align='center' justify='center'>
+          <HomeCard to='/competition' image={photoSVG} text='request_apply' />
+          <HomeCard to='/voting' image={votingSVG} text='request_voting' />
+        </Flex>
+      </VStack>
+    </Container>
   )
 }
 

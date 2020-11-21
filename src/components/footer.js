@@ -2,9 +2,9 @@ import {
   Box,
   Container,
   Flex,
-  HStack,
   IconButton,
   Image,
+  SimpleGrid,
   Text,
 } from '@chakra-ui/react'
 import React from 'react'
@@ -42,11 +42,11 @@ const Footer = () => {
           align='center'
           justify={['center', 'space-between']}
         >
-          <Image h={12} src={logoWhite} />
+          <Image loading='lazy' h={12} src={logoWhite} />
           <Text textAlign='center' flex={1} fontSize='sm' color='white'>
-            Samen4VV &copy; All rights reserved
+            Samen4VV <br /> &copy; All rights reserved
           </Text>
-          <HStack>
+          <SimpleGrid columns={[2, null, 4]}>
             {social.map(({ address, icon }) => (
               <IconButton
                 size='sm'
@@ -60,7 +60,7 @@ const Footer = () => {
                 icon={icon}
               />
             ))}
-          </HStack>
+          </SimpleGrid>
         </Flex>
       </Container>
     </Box>

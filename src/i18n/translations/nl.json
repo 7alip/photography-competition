@@ -34,6 +34,10 @@
       "title": "Inloggen mislukt!",
       "description": "Probeer opnieuw in te loggen met dezelfde provider als voorheen."
     },
+    "login_success": {
+      "title": "Ingelogd!",
+      "description": "Doorverwijzen naar homepage."
+    },
     "apply_success": "Uw aanvraag is succesvol afgerond.",
     "has_applied": "U heeft een eerdere aanvraag.",
     "not_found": "Deze pagina bestaat niet!"

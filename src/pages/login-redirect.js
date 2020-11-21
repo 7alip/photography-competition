@@ -34,6 +34,13 @@ const LoginRedirect = () => {
 
         dispatch(loginUser({ token: jwt, user }))
         setLoading(true)
+        toast({
+          title: t('login_success.title'),
+          description: t('login_success.description'),
+          status: 'success',
+          duration: 3000,
+          isClosable: true,
+        })
         setTimeout(() => history.push('/'), 3000) // Redirect to homepage after 3 sec
       } catch (error) {
         dispatch(loginFails())

@@ -29,7 +29,7 @@ const Navbar = () => {
     >
       <Link to='/'>
         <HStack _hover={{ cursor: 'pointer' }}>
-          <Image h={16} src={logoAlt} />
+          <Image loading='lazy' h={16} src={logoAlt} />
           <Text
             lineHeight='1'
             fontSize='xl'

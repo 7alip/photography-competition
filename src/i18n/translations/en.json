@@ -34,6 +34,10 @@
       "title": "Login Error!",
       "description": "Please try logging in again with the same provider you did before. You will be directed to the login page."
     },
+    "login_success": {
+      "title": "Logged In!",
+      "description": "Redirecting to homepage."
+    },
     "apply_success": "Your application has been successfully completed",
     "has_applied": "You have made an application before.",
     "not_found": "This page does not exist!"

@@ -34,6 +34,10 @@
       "title": "Giriş Yapılamadı!",
       "description": "Lütfen daha önce giriş yaptığınız yöntemle giriş yapmayı tekrar deneyin. Giriş sayfasına yönlendirileceksiniz."
     },
+    "login_success": {
+      "title": "Giriş Yaptınız!",
+      "description": "Anasayfaya yönlendirileceksiniz."
+    },
     "apply_success": "Başvurunuz başarıyla gerçekleşmiştir.",
     "has_applied": "Daha önce yapılmış bir başvurunuz bulunmaktadır.",
     "not_found": "Sayfa bulunamadı!"

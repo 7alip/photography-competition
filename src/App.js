@@ -6,6 +6,8 @@ import AppRoute from './routes/app-route'
 import Layout from './components/layout'
 import Loader from './components/loader.js'
 
+import 'react-lazy-load-image-component/src/effects/blur.css'
+
 const baseUrl = '/:locale(tr|en|nl)?'
 
 function App() {
