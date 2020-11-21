@@ -5,12 +5,9 @@ import {
   Checkbox,
   FormControl,
   FormErrorMessage,
-  FormLabel,
   Heading,
   HStack,
-  Input,
   InputGroup,
-  InputLeftElement,
   Progress,
   Text,
   VStack,
@@ -18,6 +15,7 @@ import {
   Image,
   useDisclosure,
   Textarea,
+  useToast,
 } from '@chakra-ui/react'
 import { FaEnvelope, FaPhone } from 'react-icons/fa'
 import { useForm } from 'react-hook-form'
@@ -25,12 +23,12 @@ import Axios from 'axios'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useState } from 'react'
 import TermsModal from './terms-modal'
-import ThemeButton from './theme-button'
-import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { GoLinkExternal } from 'react-icons/go'
 import { useTranslation } from 'react-i18next'
 import { translateFormSchema } from '../lib/translateFormSchema'
+import { logoutUser } from '../store/auth/actions'
+import FormField from './form-field'
 
 const calculatePercent = (value, total) => Math.round((value / total) * 100)
 
@@ -40,6 +38,9 @@ const CompetitionForm = () => {
   const [successfull, setSuccessfull] = useState(false)
   const [imagePreview, setImagePreview] = useState(null)
   const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const toast = useToast()
+  const dispatch = useDispatch()
 
   const { user, token } = useSelector(state => state.auth)
   const { t } = useTranslation()
@@ -99,6 +100,18 @@ const CompetitionForm = () => {
         if (res.status === 200) setSuccessfull(true)
       } catch (error) {
         console.log('___ERROR___', error.type, error.response, error)
+        if (error.response?.status === 401) {
+          toast({
+            title: t('session_error.title'),
+            description: t('session_error.description'),
+            duration: 5000,
+            status: 'error',
+          })
+
+          setTimeout(() => {
+            dispatch(logoutUser())
+          }, 5000)
+        }
       } finally {
         setIsLoading(false)
       }
@@ -109,16 +122,8 @@ const CompetitionForm = () => {
     return (
       <VStack flex={1} h='full' w='full' align='center' justify='center'>
         <Heading my={3} as='h2' size='lg'>
-          Başvurunuz başarıyla gerçekleşmiştir
+          {t('apply_success')}
         </Heading>
-        <HStack spacing={3}>
-          <Link to='/'>
-            <ThemeButton>Anasayfa</ThemeButton>
-          </Link>
-          <Link to='/voting'>
-            <ThemeButton>Oy Kullan</ThemeButton>
-          </Link>
-        </HStack>
       </VStack>
     )
 
@@ -144,81 +149,57 @@ const CompetitionForm = () => {
             </Box>
           </HStack>
 
-          <FormControl isInvalid={!!errors.fullName}>
-            <FormLabel>{t('form.fullname')}</FormLabel>
-            <InputGroup>
-              <InputLeftElement pointerEvents='none'>
-                <Box color='gray.300'>
-                  <FaEnvelope />
-                </Box>
-              </InputLeftElement>
-              <Input
-                name='fullName'
-                ref={register}
-                defaultValue={user?.name || user?.username || ''}
-                type='text'
-                placeholder={t('form.fullname')}
-              />
-            </InputGroup>
-            <FormErrorMessage>{errors?.fullName?.message}</FormErrorMessage>
-          </FormControl>
+          <FormField
+            register={register}
+            label={t('form.fullName')}
+            icon={<FaEnvelope />}
+            name='fullName'
+            defaultValue={user?.name || user?.username || ''}
+            placeholder={t('form.fullname')}
+            isInvalid={!!errors.fullName}
+            error={errors?.fullName?.message}
+          />
 
-          <FormControl isInvalid={!!errors.title}>
-            <FormLabel>{t('form.photo_title')}</FormLabel>
-            <InputGroup>
-              <Input
-                name='title'
-                ref={register}
-                type='text'
-                placeholder={t('form.photo_title')}
-              />
-            </InputGroup>
-            <FormErrorMessage>{errors?.title?.message}</FormErrorMessage>
-          </FormControl>
+          <FormField
+            register={register}
+            label={t('form.photo_title')}
+            name='title'
+            placeholder={t('form.photo_title')}
+            isInvalid={!!errors.title}
+            error={errors?.title?.message}
+          />
 
-          <FormControl isInvalid={!!errors.story}>
-            <FormLabel>{t('form.story')}</FormLabel>
-            <InputGroup>
-              <Textarea
-                name='story'
-                ref={register}
-                type='text'
-                placeholder={t('form.story')}
-              />
-            </InputGroup>
-            <FormErrorMessage>{errors?.story?.message}</FormErrorMessage>
-          </FormControl>
+          <FormField
+            register={register}
+            as={Textarea}
+            label={t('form.story')}
+            name='story'
+            placeholder={t('form.story')}
+            isInvalid={!!errors.story}
+            error={errors?.story?.message}
+          />
 
-          <FormControl>
-            <FormLabel>{t('form.phone')}</FormLabel>
-            <InputGroup>
-              <InputLeftElement pointerEvents='none'>
-                <Box color='gray.300'>
-                  <FaPhone />
-                </Box>
-              </InputLeftElement>
-              <Input
-                name='phone'
-                ref={register}
-                type='phone'
-                placeholder={t('form.phone')}
-              />
-            </InputGroup>
-          </FormControl>
+          <FormField
+            register={register}
+            icon={<FaPhone />}
+            label={t('form.phone')}
+            name='phone'
+            placeholder={t('form.phone')}
+            isInvalid={!!errors.phone}
+            error={errors?.phone?.message}
+          />
 
-          <FormControl isInvalid={!!errors.image}>
-            <FormLabel>{t('form.photo')}</FormLabel>
-            <InputGroup>
-              <Input
-                name='image'
-                ref={register}
-                type='file'
-                onBlur={handleBlurImage}
-                accept='image/png, image/jpeg, image/jpg'
-              />
-            </InputGroup>
-            <FormErrorMessage>{errors?.image?.message}</FormErrorMessage>
-          </FormControl>
+          <FormField
+            register={register}
+            type='file'
+            label={t('form.photo')}
+            name='image'
+            isInvalid={!!errors.image}
+            error={errors?.image?.message}
+            onBlur={handleBlurImage}
+            accept='image/png, image/jpeg, image/jpg'
+          />
+
           <FormControl py={4} isInvalid={!!errors.accepted}>
             <InputGroup>
               <Checkbox size='lg' ref={register} name='accepted'>

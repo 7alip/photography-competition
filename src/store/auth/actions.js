@@ -8,3 +8,10 @@ export const loginUser = payload => dispatch => {
 
   dispatch(login(payload))
 }
+
+export const logoutUser = () => dispatch => {
+  localStorage.removeItem('user')
+  localStorage.removeItem('token')
+
+  dispatch(logout())
+}

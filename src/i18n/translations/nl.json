@@ -5,7 +5,7 @@
       "login": "Inloggen",
       "logout": "Uitloggen",
       "connect_to": "Verbinden aan",
-      "language": "Taal"
+      "warning": "Indien u al eerder bent ingelogd, gebruik dan dezelfde provider."
     },
     "request_apply": "Ik wil me aanmelden",
     "request_voting": "Ik wil stemmen",
@@ -25,6 +25,17 @@
         "photo_required": "Kies een foto",
         "photo_size": "Kies een foto met een maximale grootte van 5MB"
       }
-    }
+    },
+    "session_error": {
+      "title": "Authenticatiefout!",
+      "description": "Uw sessie is verlopen. Log alsjeblieft nogmaals in."
+    },
+    "login_error": {
+      "title": "Inloggen mislukt!",
+      "description": "Probeer opnieuw in te loggen met dezelfde provider als voorheen."
+    },
+    "apply_success": "Uw aanvraag is succesvol afgerond.",
+    "has_applied": "U heeft een eerdere aanvraag.",
+    "not_found": "Deze pagina bestaat niet!"
   }
 }

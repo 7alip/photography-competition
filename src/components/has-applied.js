@@ -1,25 +1,22 @@
-import { Box, Heading, HStack, Image, VStack } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import { Box, Heading, Image, VStack } from '@chakra-ui/react'
 import React from 'react'
-import ThemeButton from './theme-button'
+import { useTranslation } from 'react-i18next'
 
 const HasApplied = ({ appliedPhoto }) => {
+  const { t } = useTranslation()
+  const url =
+    process.env.NODE_ENV === 'production'
+      ? appliedPhoto
+      : process.env.REACT_APP_BACKEND_URL + appliedPhoto
+
   return (
-    <VStack justify='center' flex={1} spacing={3} align='center'>
-      <Heading textAlign='center' as='h3' size='sm'>
-        Daha önce yapılmış bir başvurunuz bulunmaktadır.
-      </Heading>
+    <VStack justify='center' flex={1} spacing={8} align='center'>
       <Box my={4}>
-        <Image src={appliedPhoto} />
+        <Image boxSize={320} objectFit='cover' src={url} />
       </Box>
-      <HStack spacing={3}>
-        <Link to='/'>
-          <ThemeButton>Anasayfa</ThemeButton>
-        </Link>
-        <Link to='/voting'>
-          <ThemeButton>Oy Kullanın</ThemeButton>
-        </Link>
-      </HStack>
+      <Heading textAlign='center' as='h3' size='sm'>
+        {t('has_applied')}
+      </Heading>
     </VStack>
   )
 }

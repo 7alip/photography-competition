@@ -1,44 +1,69 @@
-import { Container, Flex, Skeleton } from '@chakra-ui/react'
+import { Container, Flex, useToast } from '@chakra-ui/react'
 
-import CompetitionForm from '../components/competition-form'
 import Axios from 'axios'
 import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import Loader from '../components/loader'
 import HasApplied from '../components/has-applied'
-import { useSelector } from 'react-redux'
+import CompetitionForm from '../components/competition-form'
+import { useHistory } from 'react-router-dom'
+import { logoutUser } from '../store/auth/actions'
+import { useTranslation } from 'react-i18next'
 
 const Competition = () => {
   const [appliedPhoto, setAppliedPhoto] = useState(null)
-  const [loading, setLoading] = useState(false)
   const [hasApplied, setHasApplied] = useState(false)
-
+  const [loading, setLoading] = useState(true)
   const { user, token } = useSelector(state => state.auth)
+  const toast = useToast()
+  const history = useHistory()
+  const dispatch = useDispatch()
+
+  const { t } = useTranslation()
 
   useEffect(() => {
     const checkIfUserHasAlreadyApplied = async () => {
       try {
         const res = await Axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/competitions?owner=${user.id}`
+          `${process.env.REACT_APP_BACKEND_URL}/competitions?owner=${user.id}`,
+          { headers: { Authorization: `Bearer ${token}` } }
         )
 
-        if (res.data && res.data[0] && res.data[0].length !== 0) {
-          return setHasApplied(true)
-        }
-
         setAppliedPhoto(res.data[0]?.image?.url)
+
+        if (res.data && res.data[0] && res.data[0].length !== 0) {
+          setHasApplied(true)
+        }
       } catch (error) {
-        console.log('___ERROR___', error.type, error.response, error)
+        console.log('error.response', error.response)
+        if (error.response?.status === 401) {
+          toast({
+            title: t('session_error.title'),
+            description: t('session_error.description'),
+            status: 'warning',
+            duration: 3000,
+          })
+          setLoading(true)
+          setTimeout(() => {
+            dispatch(logoutUser())
+            history.push('/login')
+          }, 3000)
+        }
+      } finally {
+        setLoading(false)
       }
     }
     checkIfUserHasAlreadyApplied()
-  }, [user.id])
+  }, [user?.id, token, toast, t, dispatch, history])
+
+  if (loading) return <Loader />
 
   return (
     <Container alignSelf='stretch' maxW='lg' mx='auto'>
       {hasApplied ? (
         <Flex flex={1} flexDir='column' justify='center' align='center'>
-          <Skeleton isLoaded={!loading}>
-            <HasApplied appliedPhoto={appliedPhoto} />
-          </Skeleton>
+          <HasApplied appliedPhoto={appliedPhoto} />
         </Flex>
       ) : (
         <CompetitionForm />

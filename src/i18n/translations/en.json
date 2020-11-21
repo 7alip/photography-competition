@@ -5,7 +5,7 @@
       "login": "Login",
       "logout": "Logout",
       "connect_to": "Connect to",
-      "language": "Language"
+      "warning": "If you have already logged in before, please use the same provider."
     },
     "request_apply": "I want to apply",
     "request_voting": "I want to vote",
@@ -25,6 +25,17 @@
         "photo_required": "Please pick a photo",
         "photo_size": "Pick an image with a maximum size of 5MB"
       }
-    }
+    },
+    "session_error": {
+      "title": "Authentication Error!",
+      "description": "Your session has expired. Please log in again."
+    },
+    "login_error": {
+      "title": "Login Error!",
+      "description": "Please try logging in again with the same provider you did before. You will be directed to the login page."
+    },
+    "apply_success": "Your application has been successfully completed",
+    "has_applied": "You have made an application before.",
+    "not_found": "This page does not exist!"
   }
 }

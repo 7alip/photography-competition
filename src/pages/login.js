@@ -1,9 +1,16 @@
 import React from 'react'
-import { Button, Divider, Flex, Heading, VStack } from '@chakra-ui/react'
+import {
+  Alert,
+  AlertIcon,
+  Button,
+  Divider,
+  Flex,
+  Heading,
+  Text,
+  VStack,
+} from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
 import { SiTwitter, SiFacebook, SiGoogle, SiInstagram } from 'react-icons/si'
-
-const backendUrl = process.env.REACT_APP_BACKEND_URL
 
 const Login = () => {
   const providers = [
@@ -34,7 +41,7 @@ const Login = () => {
   return (
     <Flex justify='center' flex={1} align='center'>
       <VStack
-        maxW={300}
+        maxW={320}
         w='full'
         bg='white'
         boxShadow='md'
@@ -54,12 +61,19 @@ const Login = () => {
               colorScheme={colorSchema}
               key={title}
               as='a'
-              href={`${backendUrl}/connect/${title.toLowerCase()}`}
+              href={`${
+                process.env.REACT_APP_BACKEND_URL
+              }/connect/${title.toLowerCase()}`}
             >
               {t('auth.connect_to')} {title}
             </Button>
           ))}
         </VStack>
+        <Divider />
+        <Alert status='warning'>
+          <AlertIcon w='50px' />
+          <Text fontSize='sm'>{t('auth.warning')}</Text>
+        </Alert>
       </VStack>
     </Flex>
   )

@@ -4,7 +4,8 @@
     "auth": {
       "login": "Giriş",
       "logout": "Çıkış",
-      "connect_to": "Giriş"
+      "connect_to": "Giriş",
+      "warning": "Daha önce giriş yaptıysanız, lütfen aynı sağlayıcıyı kullanın."
     },
     "request_apply": "Başvuru yapmak istiyorum",
     "request_voting": "Oy vermek istiyorum",
@@ -24,6 +25,17 @@
         "photo_required": "Lütfen bir fotoğraf seçiniz",
         "photo_size": "Boyutu en fazla 5MB olan bir resim seçiniz"
       }
-    }
+    },
+    "session_error": {
+      "title": "Yetki Hatası",
+      "description": "Oturumunuz süresi doldu. Lütfen tekrar giriş yapınız."
+    },
+    "login_error": {
+      "title": "Giriş Yapılamadı!",
+      "description": "Lütfen daha önce giriş yaptığınız yöntemle giriş yapmayı tekrar deneyin. Giriş sayfasına yönlendirileceksiniz."
+    },
+    "apply_success": "Başvurunuz başarıyla gerçekleşmiştir.",
+    "has_applied": "Daha önce yapılmış bir başvurunuz bulunmaktadır.",
+    "not_found": "Sayfa bulunamadı!"
   }
 }
