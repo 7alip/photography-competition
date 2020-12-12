@@ -5,10 +5,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const HasApplied = ({ appliedPhoto }) => {
   const { t } = useTranslation()
-  const url =
-    process.env.NODE_ENV === 'production'
-      ? appliedPhoto
-      : process.env.REACT_APP_BACKEND_URL + appliedPhoto
+  const url = 'https://admin.samenvvv.nl' + appliedPhoto
 
   return (
     <VStack justify='center' flex={1} spacing={8} align='center'>

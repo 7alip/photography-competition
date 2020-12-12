@@ -29,11 +29,6 @@ const Login = () => {
       icon: <SiTwitter />,
       colorSchema: 'twitter',
     },
-    {
-      title: 'Instagram',
-      icon: <SiInstagram />,
-      colorSchema: 'pink',
-    },
   ]
 
   const { t } = useTranslation()
@@ -61,9 +56,7 @@ const Login = () => {
               colorScheme={colorSchema}
               key={title}
               as='a'
-              href={`${
-                process.env.REACT_APP_BACKEND_URL
-              }/connect/${title.toLowerCase()}`}
+              href={`https://admin.samenvvv.nl/connect/${title.toLowerCase()}`}
             >
               {t('auth.connect_to')} {title}
             </Button>

@@ -27,7 +27,7 @@ const Competition = () => {
     const checkIfUserHasAlreadyApplied = async () => {
       try {
         const res = await Axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/competitions?owner=${user.id}`,
+          `https://admin.samenvvv.nl/competitions?owner=${user.id}`,
           { headers: { Authorization: `Bearer ${token}` } }
         )
 

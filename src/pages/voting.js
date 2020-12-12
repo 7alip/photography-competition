@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { competitionsLoaded } from '../store/competition/actions'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 
-const url =
-  process.env.NODE_ENV === 'production' ? '' : process.env.REACT_APP_BACKEND_URL
+const url = 'https://admin.samenvvv.nl'
 
 const Test = () => {
   const { token, user } = useSelector(state => state.auth)
@@ -18,7 +17,7 @@ const Test = () => {
     const fetchImages = async () => {
       try {
         const res = await Axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/competitions?_sort=published_at:DESC`,
+          `https://admin.samenvvv.nl/competitions?_sort=published_at:DESC`,
           { headers: { Authorization: `Bearer ${token}` } }
         )
 

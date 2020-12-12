@@ -7,7 +7,7 @@ import { useToast } from '@chakra-ui/react'
 import Loader from '../components/loader'
 import { useTranslation } from 'react-i18next'
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL
+const backendUrl = 'https://admin.samenvvv.nl'
 
 const LoginRedirect = () => {
   const [loading, setLoading] = useState(false)

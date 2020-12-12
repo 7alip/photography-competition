@@ -26,11 +26,11 @@ import TermsModal from './terms-modal'
 import { useDispatch, useSelector } from 'react-redux'
 import { GoLinkExternal } from 'react-icons/go'
 import { useTranslation } from 'react-i18next'
-import { translateFormSchema } from '../lib/translateFormSchema'
 import { logoutUser } from '../store/auth/actions'
 import FormField from './form-field'
 import logo from '../assets/img/logo.svg'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import * as yup from 'yup'
 
 const calculatePercent = (value, total) => Math.round((value / total) * 100)
 
@@ -46,7 +46,22 @@ const CompetitionForm = () => {
 
   const { user, token } = useSelector(state => state.auth)
   const { t } = useTranslation()
-  const schema = translateFormSchema(t)
+
+  const schema = yup.object().shape({
+    fullName: yup.string().required(t('form.errors.name_required')),
+    phone: yup.string(),
+    title: yup.string().required(t('form.errors.title_required')),
+    story: yup.string(),
+    accepted: yup.bool().oneOf([true], t('form.errors.accept_required')),
+    image: yup
+      .mixed()
+      .required(t('form.errors.photo_required'))
+      .test(
+        'fileSize',
+        t('form.errors.photo_size'),
+        value => value && value[0] && value[0].size <= 5 * 1000 * 1000
+      ),
+  })
 
   const { register, handleSubmit, errors } = useForm({
     mode: 'onTouched',
@@ -91,7 +106,7 @@ const CompetitionForm = () => {
       try {
         const res = await Axios({
           method: 'post',
-          url: `${process.env.REACT_APP_BACKEND_URL}/competitions`,
+          url: `https://admin.samenvvv.nl/competitions`,
           data: formData,
           headers: {
             Authorization: `Bearer ${token}`,
@@ -153,7 +168,7 @@ const CompetitionForm = () => {
 
           <FormField
             register={register}
-            label={t('form.fullName')}
+            label={t('form.fullname')}
             icon={<FaEnvelope />}
             name='fullName'
             defaultValue={user?.name || user?.username || ''}
