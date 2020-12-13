@@ -10,7 +10,7 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
-import { SiTwitter, SiFacebook, SiGoogle, SiInstagram } from 'react-icons/si'
+import { SiTwitter, SiFacebook, SiGoogle } from 'react-icons/si'
 
 const Login = () => {
   const providers = [

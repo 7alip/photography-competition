@@ -1,8 +1,7 @@
-import { SystemStyleObject } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
 
 const styles = {
-  global: (props: SystemStyleObject): SystemStyleObject => ({
+  global: props => ({
     body: {
       fontFamily: 'body',
       color: mode('light.text', 'dark.text')(props),
@@ -18,6 +17,18 @@ const styles = {
     },
     fontFeatureSettings: `"pnum"`,
     fontVariantNumeric: 'proportional-nums',
+    h1: {
+      fontSize: '28px !important',
+    },
+    h2: {
+      fontSize: '24px !important',
+    },
+    h3: {
+      fontSize: '20px !important',
+    },
+    h4: {
+      fontSize: '18px !important',
+    },
   }),
 }
 

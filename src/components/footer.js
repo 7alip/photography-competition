@@ -14,19 +14,19 @@ import logoWhite from '../assets/img/logo-white.svg'
 
 const social = [
   {
-    address: 'https://twitter.com/samen4vv',
+    address: 'https://twitter.com/samenvvv',
     icon: <FaTwitter />,
   },
   {
-    address: 'https://facebook.com',
+    address: 'https://www.facebook.com/samenverbinding/',
     icon: <FaFacebook />,
   },
   {
-    address: 'https://instagram.com/samen4vv',
+    address: 'https://instagram.com/samenvvv',
     icon: <FaInstagram />,
   },
   {
-    address: 'https://youtube.com',
+    address: 'https://www.youtube.com/channel/UC6SOtlov-UehhnwXuTq50yA',
     icon: <FaYoutube />,
   },
 ]
@@ -44,7 +44,7 @@ const Footer = () => {
         >
           <Image loading='lazy' h={12} src={logoWhite} />
           <Text textAlign='center' flex={1} fontSize='sm' color='white'>
-            Samen4VV <br /> &copy; All rights reserved
+            Samenvvv <br /> &copy; All rights reserved
           </Text>
           <SimpleGrid columns={[2, null, 4]}>
             {social.map(({ address, icon }) => (

@@ -21,8 +21,7 @@ import { FaEnvelope, FaPhone } from 'react-icons/fa'
 import { useForm } from 'react-hook-form'
 import Axios from 'axios'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useState } from 'react'
-import TermsModal from './terms-modal'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { GoLinkExternal } from 'react-icons/go'
 import { useTranslation } from 'react-i18next'
@@ -31,6 +30,10 @@ import FormField from './form-field'
 import logo from '../assets/img/logo.svg'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import * as yup from 'yup'
+import terms_en from '../content/terms-en.md'
+import terms_nl from '../content/terms-nl.md'
+import terms_tr from '../content/terms-tr.md'
+import MarkdownModal from './markdown-modal'
 
 const calculatePercent = (value, total) => Math.round((value / total) * 100)
 
@@ -39,13 +42,30 @@ const CompetitionForm = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [successfull, setSuccessfull] = useState(false)
   const [imagePreview, setImagePreview] = useState(null)
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onToggle } = useDisclosure()
+  const { locale } = useSelector(state => state.locale)
+  const [md, setMd] = useState('')
 
   const toast = useToast()
   const dispatch = useDispatch()
 
   const { user, token } = useSelector(state => state.auth)
   const { t } = useTranslation()
+
+  useEffect(() => {
+    const terms = {
+      tr: terms_tr,
+      nl: terms_nl,
+      en: terms_en,
+    }
+    const loadMd = async () => {
+      const res = await fetch(terms[locale])
+      const txt = await res.text()
+      setMd(txt)
+    }
+
+    loadMd()
+  }, [locale])
 
   const schema = yup.object().shape({
     fullName: yup.string().required(t('form.errors.name_required')),
@@ -272,7 +292,7 @@ const CompetitionForm = () => {
           />
         </Flex>
       </Box>
-      <TermsModal isOpen={isOpen} onClose={onClose} />
+      <MarkdownModal content={md} isOpen={isOpen} onToggle={onToggle} />
     </Flex>
   )
 }
