@@ -32,5 +32,4 @@ Op 28 januari 2021 worden achtereenvolgens de derde winnende foto om 19:00 uur, 
 
 ### Organisatoren:
 
-De wedstrijd wordt uitgevoerd in samenwerking met de organisaties platform Samen voor vrijheid en verbinding (www.samenvvv.nl), Platform INS (https://platformins.nl) en Stichting IPN (www.stichtingipn.nl) en psikorehberim (http://www.psikorehberim.com)
-Contactpersoon: Muhammed Basoglu + tel. nr
+De wedstrijd wordt uitgevoerd in samenwerking met de organisaties platform Samen voor vrijheid en verbinding [**samenvvv.nl**](https://samenvvv), [**Kunst van het Samenleven**](https://platformins.nl) en [**psikorehberim.com**](https://psikorehberim.com/)\_
