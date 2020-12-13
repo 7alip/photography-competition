@@ -1,6 +1,7 @@
 {
   "translation": {
     "hello": "Merhaba",
+    "terms": "Hüküm ve Koşullar",
     "auth": {
       "login": "Giriş",
       "logout": "Çıkış",

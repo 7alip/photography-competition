@@ -1,6 +1,7 @@
 {
   "translation": {
     "hello": "Hello",
+    "terms": "Terms and Conditions",
     "auth": {
       "login": "Login",
       "logout": "Logout",
