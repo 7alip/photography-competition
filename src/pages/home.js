@@ -57,7 +57,7 @@ const HomeTest = () => {
   return (
     <Container maxW='lg'>
       <MarkdownModal content={md} isOpen={isOpen} onToggle={onToggle} />
-      <VStack spacing={4} align='center' justify='center' maxW='full'>
+      <VStack spacing={16} align='center' justify='center' maxW='full'>
         {token && (
           <Heading textAlign='center' as='h3' my={2} size='md'>
             {t('welcome')} {user.username}

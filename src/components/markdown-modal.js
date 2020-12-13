@@ -26,6 +26,7 @@ const MarkdownModal = ({ isOpen, onToggle, content, ...rest }) => {
         <ModalBody>
           <ModalCloseButton />
           <ReactMarkdown
+            allowDangerousHtml
             renderers={{
               paragraph: ({ children }) => <Text mb={4}>{children}</Text>,
               heading: ({ children }) => {

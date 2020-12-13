@@ -1,5 +1,13 @@
 import React from 'react'
-import { Menu, MenuButton, MenuList, MenuItem, Image } from '@chakra-ui/react'
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Image,
+  VStack,
+  HStack,
+} from '@chakra-ui/react'
 import tr from '../assets/img/tr.svg'
 import en from '../assets/img/en.svg'
 import nl from '../assets/img/nl.svg'
@@ -34,34 +42,21 @@ const LanguageSwitcher = () => {
   ]
 
   return (
-    <Menu>
-      <MenuButton>
-        <Image
-          loading='lazy'
-          boxSize={10}
-          src={locale === 'tr' ? tr : locale === 'en' ? en : nl}
-        />
-      </MenuButton>
-      <MenuList>
-        {locales.map(({ locale, name, icon }) => (
-          <MenuItem
-            key={locale}
-            minH='48px'
-            onClick={() => handleChange(locale)}
-          >
-            <Image
-              loading='lazy'
-              boxSize='2rem'
-              borderRadius='full'
-              src={icon}
-              alt='tr'
-              mr='12px'
-            />
-            <span>{name}</span>
-          </MenuItem>
-        ))}
-      </MenuList>
-    </Menu>
+    <VStack align='start'>
+      {locales.map(({ locale, name, icon }) => (
+        <HStack key={locale} minH='48px' onClick={() => handleChange(locale)}>
+          <Image
+            loading='lazy'
+            boxSize='2rem'
+            borderRadius='full'
+            src={icon}
+            alt='tr'
+            mr='12px'
+          />
+          <span>{name}</span>
+        </HStack>
+      ))}
+    </VStack>
   )
 }
 
