@@ -20,7 +20,7 @@ De top vijf van de ingezonden foto's wordt bepaald a.d.h.v. de stemmen van het p
 
 28 januari 2021 om 19:00 - 19:10 uur
 
-Op 28 januari 2021 worden achtereenvolgens de derde winnende foto om 19:00 uur, de tweede winnende foto om 19:05 uur en de eerste winnende foto om 19:10 uur gedeeld vanaf ons Twitter-account [**@samenvvv**](https://twitter.com/samenvvv) met de hashtag #Eenzamheidtijdenscorona Vanaf 19:15 worden alle resultaten op onze website bekend gemaakt.
+Op 28 januari 2021 worden achtereenvolgens de derde winnende foto om 19:00 uur, de tweede winnende foto om 19:05 uur en de eerste winnende foto om 19:10 uur gedeeld vanaf ons Twitter-account [**@samenvvv**](https://twitter.com/samenvvv) Vanaf 19:15 worden alle resultaten op onze website bekend gemaakt.
 
 ### Prijzen: 🥇
 
@@ -32,4 +32,4 @@ Op 28 januari 2021 worden achtereenvolgens de derde winnende foto om 19:00 uur, 
 
 ### Organisatoren:
 
-De wedstrijd wordt uitgevoerd in samenwerking met de organisaties platform Samen voor vrijheid en verbinding [**samenvvv.nl**](https://samenvvv), [**Kunst van het Samenleven**](https://platformins.nl) en [**psikorehberim.com**](https://psikorehberim.com/)\_
+De wedstrijd wordt uitgevoerd in samenwerking met de organisaties platform Samen voor vrijheid en verbinding [**samenvvv.nl**](https://samenvvv), [**Kunst van het Samenleven**](https://platformins.nl),[**stichtingIPN**](https://www.stichtingipn.nl) [**psikorehberim.com**](https://psikorehberim.com/)
