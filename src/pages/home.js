@@ -5,9 +5,10 @@ import {
   Flex,
   Heading,
   Image,
-  useDisclosure,
   VStack,
+  Text,
 } from '@chakra-ui/react'
+import ReactMarkdown from 'react-markdown'
 
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
@@ -20,18 +21,12 @@ import HomeCard from '../components/home-card'
 import content_tr from '../content/competition-tr.md'
 import content_nl from '../content/competition-nl.md'
 import content_en from '../content/competition-en.md'
-import MarkdownModal from '../components/markdown-modal'
 
 const HomeTest = () => {
   const { user, token } = useSelector(state => state.auth)
   const [md, setMd] = useState('')
   const { t } = useTranslation()
   const { locale } = useSelector(state => state.locale)
-  const { isOpen, onToggle } = useDisclosure()
-
-  useEffect(() => {
-    onToggle()
-  }, [])
 
   useEffect(() => {
     const content = {
@@ -56,8 +51,7 @@ const HomeTest = () => {
 
   return (
     <Container maxW='lg'>
-      <MarkdownModal content={md} isOpen={isOpen} onToggle={onToggle} />
-      <VStack spacing={16} align='center' justify='center' maxW='full'>
+      <VStack spacing={8} align='center' justify='center' maxW='full'>
         {token && (
           <Heading textAlign='center' as='h3' my={2} size='md'>
             {t('welcome')} {user.username}
@@ -66,6 +60,34 @@ const HomeTest = () => {
         <Box maxW={[300, 400]}>
           <Image loading='lazy' src={coverImageSrc(locale)} alt='cover image' />
         </Box>
+        <Box
+          as='iframe'
+          maxW='560px'
+          w='full'
+          h='315px'
+          src='https://www.youtube.com/embed/TIskzrXbVeo'
+          frameBorder='0'
+          allow='accelerometer; autoplay;'
+          allowFullScreen
+        />
+
+        <Box p={[4, 6, 8]} boxShadow='md' bg='white'>
+          <ReactMarkdown
+            allowDangerousHtml
+            renderers={{
+              paragraph: ({ children }) => <Text mb={2}>{children}</Text>,
+              heading: ({ children }) => {
+                return (
+                  <Heading fontSize='24px' my={4}>
+                    {children}
+                  </Heading>
+                )
+              },
+            }}
+            children={md}
+          />
+        </Box>
+
         <Flex w='full' flexWrap='wrap' align='center' justify='center'>
           <HomeCard to='/competition' image={photoSVG} text='request_apply' />
           <HomeCard to='/voting' image={votingSVG} text='request_voting' />

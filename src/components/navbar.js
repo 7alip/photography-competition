@@ -17,6 +17,7 @@ import {
   DrawerContent,
   DrawerCloseButton,
   VStack,
+  Box,
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 
@@ -50,6 +51,7 @@ const Navbar = () => {
       nl: terms_nl,
       en: terms_en,
     }
+
     const loadMd = async () => {
       const res = await fetch(terms[locale])
       const txt = await res.text()
@@ -65,17 +67,17 @@ const Navbar = () => {
 
   const locales = [
     {
-      locale: 'tr',
+      code: 'tr',
       icon: tr,
       name: 'Türkçe',
     },
     {
-      locale: 'en',
+      code: 'en',
       icon: en,
       name: 'English',
     },
     {
-      locale: 'nl',
+      code: 'nl',
       icon: nl,
       name: 'Nederlands',
     },
@@ -91,6 +93,9 @@ const Navbar = () => {
       boxShadow='sm'
       mb={4}
       bg='white'
+      pos='fixed'
+      top={0}
+      zIndex='sticky'
     >
       <Link to='/'>
         <HStack _hover={{ cursor: 'pointer' }}>
@@ -133,31 +138,40 @@ const Navbar = () => {
                     {t('auth.login')}
                   </ThemeButton>
                 )}
-                <ThemeButton onClick={onToggle} w='full'>
+
+                <ThemeButton isReversed as={Link} to='/competition' w='full'>
+                  {t('request_apply')}
+                </ThemeButton>
+                <ThemeButton isReversed as={Link} to='/voting' w='full'>
+                  {t('request_voting')}
+                </ThemeButton>
+                <ThemeButton isDark onClick={onToggle} w='full'>
                   {t('terms')}
                 </ThemeButton>
-                {locales.map(({ locale, name, icon }) => (
-                  <Button
-                    variant='ghost'
-                    key={locale}
-                    minH='48px'
-                    onClick={() => handleChange(locale)}
-                    w='full'
-                    justifyContent='flex-start'
-                    borderWidth='2px'
-                    borderColor='light.orange'
-                  >
-                    <Image
-                      loading='lazy'
-                      boxSize='2rem'
+                <HStack>
+                  {locales.map(({ code, name, icon }) => (
+                    <Box
+                      cursor='pointer'
+                      p={2}
                       borderRadius='full'
-                      src={icon}
-                      alt='tr'
-                      mr={4}
-                    />
-                    <span>{name}</span>
-                  </Button>
-                ))}
+                      variant='ghost'
+                      key={code}
+                      minH='48px'
+                      onClick={() => handleChange(code)}
+                      borderWidth={locale === code && 2}
+                      borderColor='light.orange'
+                      boxShadow='md'
+                    >
+                      <Image
+                        loading='lazy'
+                        boxSize='3rem'
+                        borderRadius='full'
+                        src={icon}
+                        alt='tr'
+                      />
+                    </Box>
+                  ))}
+                </HStack>
               </VStack>
             </DrawerBody>
           </DrawerContent>

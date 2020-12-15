@@ -1,18 +1,24 @@
 import { Button } from '@chakra-ui/react'
 
-const ThemeButton = ({ icon, children, ...rest }) => {
+const ThemeButton = ({ isDark, isReversed, icon, children, ...rest }) => {
   return (
     <Button
       leftIcon={icon}
-      borderColor='transparent'
+      borderColor={
+        !isReversed ? 'transparent' : isDark ? 'dark.orange' : 'light.orange'
+      }
+      color={!isReversed ? 'white' : isDark ? 'dark.orange' : 'light.orange'}
+      bg={isReversed ? 'white' : isDark ? 'dark.orange' : 'light.orange'}
       borderWidth={2}
       _hover={{
-        color: 'light.orange',
-        borderColor: 'light.orange',
-        bg: 'white',
+        color: isReversed ? 'white' : isDark ? 'dark.orange' : 'light.orange',
+        borderColor: isReversed
+          ? 'transparent'
+          : isDark
+          ? 'dark.orange'
+          : 'light.orange',
+        bg: !isReversed ? 'white' : isDark ? 'dark.orange' : 'light.orange',
       }}
-      color='white'
-      bg='light.orange'
       {...rest}
     >
       {children || 'Giriş'}

@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 import { FaTwitter, FaYoutube, FaFacebook, FaInstagram } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 import logoWhite from '../assets/img/logo-white.svg'
 
@@ -42,7 +43,9 @@ const Footer = () => {
           align='center'
           justify={['center', 'space-between']}
         >
-          <Image loading='lazy' h={12} src={logoWhite} />
+          <Link to='/'>
+            <Image loading='lazy' h={12} src={logoWhite} />
+          </Link>
           <Text textAlign='center' flex={1} fontSize='sm' color='white'>
             Samenvvv <br /> &copy; All rights reserved
           </Text>

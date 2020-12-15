@@ -30,7 +30,6 @@ const MarkdownModal = ({ isOpen, onToggle, content, ...rest }) => {
             renderers={{
               paragraph: ({ children }) => <Text mb={4}>{children}</Text>,
               heading: ({ children }) => {
-                console.log('children', children)
                 return (
                   <Heading fontSize='24px' mt={8} mb={2}>
                     {children}

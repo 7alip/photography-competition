@@ -1,5 +1,12 @@
 import React, { useEffect } from 'react'
-import { Box, Container, Image, SimpleGrid } from '@chakra-ui/react'
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Image,
+  SimpleGrid,
+} from '@chakra-ui/react'
 import Axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { competitionsLoaded } from '../store/competition/actions'
@@ -17,8 +24,8 @@ const Test = () => {
     const fetchImages = async () => {
       try {
         const res = await Axios.get(
-          `https://admin.samenvvv.nl/competitions?_sort=published_at:DESC`,
-          { headers: { Authorization: `Bearer ${token}` } }
+          `https://admin.samenvvv.nl/competitions?_sort=published_at:DESC`
+          // { headers: { Authorization: `Bearer ${token}` } }
         )
 
         if (res.data?.length > 0) {
