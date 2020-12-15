@@ -23,8 +23,7 @@
         "name_required": "Volledige naam is vereist",
         "title_required": "Foto titel is vereist",
         "accept_required": "Bevestig alstublieft",
-        "photo_required": "Kies een foto",
-        "photo_size": "Kies een foto met een maximale grootte van 5MB"
+        "photo_required": "Kies een foto"
       }
     },
     "session_error": {

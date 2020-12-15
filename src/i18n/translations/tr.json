@@ -23,8 +23,7 @@
         "name_required": "Tam adinizi girmeniz zorunludur",
         "title_required": "Fotoğraf başlığı belirtmeniz zorunludur",
         "accept_required": "Lütfen onaylayınız",
-        "photo_required": "Lütfen bir fotoğraf seçiniz",
-        "photo_size": "Boyutu en fazla 5MB olan bir resim seçiniz"
+        "photo_required": "Lütfen bir fotoğraf seçiniz"
       }
     },
     "session_error": {

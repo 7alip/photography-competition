@@ -23,8 +23,7 @@
         "name_required": "Full name is required",
         "title_required": "Photo title is required",
         "accept_required": "Please confirm",
-        "photo_required": "Please pick a photo",
-        "photo_size": "Pick an image with a maximum size of 5MB"
+        "photo_required": "Please pick a photo"
       }
     },
     "session_error": {
