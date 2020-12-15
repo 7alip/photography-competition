@@ -136,7 +136,6 @@ const CompetitionForm = () => {
         })
         if (res.status === 200) setSuccessfull(true)
       } catch (error) {
-        console.log('___ERROR___', error.type, error.response, error)
         if (error.response?.status === 401) {
           toast({
             title: t('session_error.title'),

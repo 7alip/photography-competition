@@ -12,7 +12,6 @@ const HomeCard = ({ image, text, to }) => {
       as={Link}
       w={['full', false, 1 / 2]}
       to={to}
-      maxW={400}
       transition='all 200ms ease-in-out'
       borderWidth={4}
       borderColor='transparent'

@@ -29,7 +29,6 @@ const routes = [
   {
     path: '/voting',
     component: Voting,
-    isPrivate: true,
   },
   {
     path: '/*',
