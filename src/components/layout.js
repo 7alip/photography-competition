@@ -1,9 +1,16 @@
+import React, { useEffect } from 'react'
 import { Flex } from '@chakra-ui/react'
-import React from 'react'
+import GoogleAnalytics from 'react-ga'
+
 import Footer from './footer'
 import Navbar from './navbar'
 
 const Layout = ({ children }) => {
+  useEffect(() => {
+    GoogleAnalytics.initialize('G-TLWM480Z15')
+
+    GoogleAnalytics.pageview(window.location.pathname + window.location.search)
+  }, [])
   return (
     <Flex overflowX='hidden' minH='100vh' flexDir='column' bg='gray.100'>
       <Navbar />
