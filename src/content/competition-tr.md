@@ -26,7 +26,7 @@ Sitemiz üzerinden yapılacak oylamayla ilk beşe giren fotoğraflar belirlenece
 
 28 Ocak 2021 saat 19:00 - 19:10
 
-28 Ocak 2021 tarihinde twitter [**@samenvvv**](https://twitter.com/samenvvv) hesabımızdan, saat 19:00’de  3., 19:05’te 2. ve 19:10’da ise 1.olan fotoğraf paylaşılacaktır. 19:15’ten itibaren bütün sonuçlar sitemizden duyurulacaktır.
+28 Ocak 2021 tarihinde twitter [**@samenvvv**](https://twitter.com/samenvvv) hesabımızdan, saat 19:00’de 3., 19:05’te 2. ve 19:10’da ise 1.olan fotoğraf paylaşılacaktır. 19:15’ten itibaren bütün sonuçlar sitemizden duyurulacaktır.
 
 ### Ödüller:🥇
 
