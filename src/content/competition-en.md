@@ -26,7 +26,7 @@ The top five photos will be determined by voting on our site. Each jury will cho
 
 28 January 2021 at 19:00 - 19:10
 
-On January 28, 2021, at 19:00, the third photo, the second photo at 19:05, and the first photo at 19:10 will be shared from our Twitter [**@samenvvv**](https://twitter.com/samenvvv) account with the hashtag **#Eenzamheidtijdenscorona**.
+On January 28, 2021, at 19:00, the third photo, the second photo at 19:05, and the first photo at 19:10 will be shared from our Twitter [**@samenvvv**](https://twitter.com/samenvvv) account.
 
 As of 19:15, all results will be announced on our website.
 
@@ -40,4 +40,4 @@ As of 19:15, all results will be announced on our website.
 
 ### Organizators
 
-The competition is conducted in partnership with the institutions of Samen voor Vrijheid en Verbinding [**samenvvv.nl**](https://samenvvv), [**Kunst van het Samenleven**](https://platformins.nl) and [**psikorehberim.com**](https://psikorehberim.com/)\_
+The competition is conducted in partnership with the institutions of Samen voor Vrijheid en Verbinding [**samenvvv.nl**](https://samenvvv.nl), [**Kunst van het Samenleven**](https://platformins.nl) and [**psikorehberim.com**](https://psikorehberim.com/)
