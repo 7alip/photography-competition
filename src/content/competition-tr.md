@@ -10,7 +10,7 @@ Yalnızlığın fotoğrafını çekin bize gönderin, yalnızlığınızı payla
 
 Başvurular [**samenvvv.nl**](https://samenvvv.nl) sitemiz üzerinden yapılacaktır.
 
-Kazananlar, sitemiz üzerinden yapılacak oylama sonucu ilk beşe giren ve juri tarafından yapılacak seçimle belirlenecektir.
+Kazananlar, sitemiz üzerinden yapılacak oylama ve juri tarafından yapılacak seçimle belirlenecektir.
 
 ### Başvurular:
 
@@ -20,13 +20,13 @@ Kazananlar, sitemiz üzerinden yapılacak oylama sonucu ilk beşe giren ve juri 
 
 **Oylama:** 16 Ocak 2021 saat 19:00-26 Ocak 2021 saat 19:00
 
-Sitemiz üzerinden yapılacak oylamayla ilk beşe giren fotoğraflar belirlenecektir. Juri, ilk beşe giremeyen ürünlerden her bir juri ikişer tane olmak üzere seçim yapacaktır. Bu şekilde belirlenen liste üzerinden jurinin oylarıyla ilk üç belirlenecektir.
+Sitemiz üzerinden yapılacak oylamayla ilk beşe giren fotoğraflar belirlenecektir. Juri, ilk beşte yer almayan fotograflar arasından, her bir juri ikişer tane olmak üzere seçim yapacaktır. Bu şekilde belirlenen liste üzerinden jurinin oylarıyla ilk üç belirlenecektir.
 
 ### Sonuçların duyurulması:
 
 28 Ocak 2021 saat 19:00 - 19:10
 
-28 Ocak 2021 tarihi saat 19:00’de Twitter [**@samenvvv**](https://twitter.com/samenvvv) hesabımızdan **#Eenzamheidtijdenscorona** etiketiyle 3.olan, fotoğraf, 19:05’te 2.olan ve 19:10’da ise 1.olan fotoğraf paylaşılacaktır. 19:15’ten itibaren bütün sonuçlar sitemizden duyurulacaktır.
+28 Ocak 2021 tarihinde twitter [**@samenvvv**](https://twitter.com/samenvvv) hesabımızdan, saat 19:00’de  3., 19:05’te 2. ve 19:10’da ise 1.olan fotoğraf paylaşılacaktır. 19:15’ten itibaren bütün sonuçlar sitemizden duyurulacaktır.
 
 ### Ödüller:🥇
 
@@ -38,4 +38,4 @@ Sitemiz üzerinden yapılacak oylamayla ilk beşe giren fotoğraflar belirlenece
 
 ### Organizatörler
 
-Yarışma, [**Samen voor Vrijheid en Verbinding**](https://samenvvv.nl), [**Kunts van het Samenleven**](https://platformins.nl) ve [**Stichtingipn**](https://stichtingipn.nl) kurumları ortaklığında yürütülmektedir.
+Yarışma, [**Samen voor Vrijheid en Verbinding**](https://samenvvv.nl), [**Kunts van het Samenleven**](https://platformins.nl), [**Stichtingipn**](https://stichtingipn.nl) ve [**psikorehberim**] (https://psikorehberim.com)kurumları ortaklığında yürütülmektedir.
