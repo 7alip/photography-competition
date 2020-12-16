@@ -8,7 +8,6 @@ import {
   Image,
   Text,
   IconButton,
-  Button,
   useDisclosure,
   Drawer,
   DrawerBody,
