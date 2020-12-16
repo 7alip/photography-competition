@@ -7,7 +7,7 @@ import Navbar from './navbar'
 
 const Layout = ({ children }) => {
   useEffect(() => {
-    GoogleAnalytics.initialize('UA-169608904-1')
+    GoogleAnalytics.initialize('UA-185698689-1')
 
     GoogleAnalytics.pageview(window.location.pathname + window.location.search)
   }, [])

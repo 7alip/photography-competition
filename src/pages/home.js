@@ -60,16 +60,22 @@ const HomeTest = () => {
         <Box maxW={[300, 400]}>
           <Image loading='lazy' src={coverImageSrc(locale)} alt='cover image' />
         </Box>
-        <Box
-          as='iframe'
-          maxW='560px'
-          w='full'
-          h='315px'
-          src='https://www.youtube.com/embed/TIskzrXbVeo'
-          frameBorder='0'
-          allow='accelerometer; autoplay;'
-          allowFullScreen
-        />
+        <Box w='full' h={0} pos='relative' pb='56.25%'>
+          <Box
+            as='iframe'
+            src='https://streamable.com/e/on9fmm?loop=0'
+            frameBorder='0'
+            width='100%'
+            height='100%'
+            allowFullScreen
+            w='full'
+            h='full'
+            pos='absolute'
+            left={0}
+            top={0}
+            overflow='hidden'
+          />
+        </Box>
 
         <Box p={[4, 6, 8]} boxShadow='md' bg='white'>
           <ReactMarkdown
