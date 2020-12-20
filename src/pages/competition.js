@@ -1,4 +1,4 @@
-import { Container, Flex, useToast } from '@chakra-ui/react'
+import { Flex, useToast } from '@chakra-ui/react'
 
 import Axios from 'axios'
 import { useEffect, useState } from 'react'
@@ -27,7 +27,7 @@ const Competition = () => {
     const checkIfUserHasAlreadyApplied = async () => {
       try {
         const res = await Axios.get(
-          `https://admin.samenvvv.nl/competitions?owner=${user.id}`,
+          `${process.env.REACT_APP_BACKEND_URL}/competitions?owner=${user.id}`,
           { headers: { Authorization: `Bearer ${token}` } }
         )
 
@@ -59,18 +59,14 @@ const Competition = () => {
   }, [user?.id, token, hasApplied, toast, t, dispatch, history])
 
   if (loading) return <Loader />
+  if (hasApplied)
+    return (
+      <Flex flex={1} flexDir='column' justify='center' align='center' h='full'>
+        <HasApplied appliedPhoto={appliedPhoto} />
+      </Flex>
+    )
 
-  return (
-    <Container alignSelf='stretch' maxW='lg' mx='auto'>
-      {hasApplied ? (
-        <Flex flex={1} flexDir='column' justify='center' align='center'>
-          <HasApplied appliedPhoto={appliedPhoto} />
-        </Flex>
-      ) : (
-        <CompetitionForm />
-      )}
-    </Container>
-  )
+  return <CompetitionForm />
 }
 
 export default Competition

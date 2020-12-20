@@ -7,8 +7,6 @@ import { useToast } from '@chakra-ui/react'
 import Loader from '../components/loader'
 import { useTranslation } from 'react-i18next'
 
-const backendUrl = 'https://admin.samenvvv.nl'
-
 const LoginRedirect = () => {
   const [loading, setLoading] = useState(false)
   const location = useLocation()
@@ -24,7 +22,7 @@ const LoginRedirect = () => {
     const checkLoggedIn = async () => {
       try {
         const res = await Axios.get(
-          `${backendUrl}/auth/${params.providerName}/callback${location.search}`
+          `${process.env.REACT_APP_BACKEND_URL}/auth/${params.providerName}/callback${location.search}`
         )
 
         if (res.status !== 200)
@@ -60,7 +58,7 @@ const LoginRedirect = () => {
     }
 
     checkLoggedIn()
-  }, [history, location.search, t, dispatch, params.providerName, toast])
+  }, [])
 
   return loading ? <Loader /> : ''
 }

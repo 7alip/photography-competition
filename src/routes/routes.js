@@ -6,6 +6,7 @@ const NotFound = lazy(() => import('../pages/not-found'))
 const LoginRedirect = lazy(() => import('../pages/login-redirect'))
 const Login = lazy(() => import('../pages/login'))
 const Voting = lazy(() => import('../pages/voting'))
+const Confirmed = lazy(() => import('../pages/confirmed'))
 
 const routes = [
   {
@@ -29,6 +30,10 @@ const routes = [
   {
     path: '/voting',
     component: Voting,
+  },
+  {
+    path: '/confirmed',
+    component: Confirmed,
   },
   {
     path: '/*',

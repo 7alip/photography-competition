@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Alert,
   AlertIcon,
@@ -6,32 +6,35 @@ import {
   Divider,
   Flex,
   Heading,
+  Link,
   Text,
   VStack,
 } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
 import { SiTwitter, SiFacebook, SiGoogle } from 'react-icons/si'
+import AuthForm from '../components/auth-form'
+
+const providers = [
+  {
+    title: 'Google',
+    icon: <SiGoogle />,
+    colorSchema: 'red',
+  },
+  {
+    title: 'Facebook',
+    icon: <SiFacebook />,
+    colorSchema: 'facebook',
+  },
+  {
+    title: 'Twitter',
+    icon: <SiTwitter />,
+    colorSchema: 'twitter',
+  },
+]
 
 const Login = () => {
-  const providers = [
-    {
-      title: 'Google',
-      icon: <SiGoogle />,
-      colorSchema: 'red',
-    },
-    {
-      title: 'Facebook',
-      icon: <SiFacebook />,
-      colorSchema: 'facebook',
-    },
-    {
-      title: 'Twitter',
-      icon: <SiTwitter />,
-      colorSchema: 'twitter',
-    },
-  ]
-
   const { t } = useTranslation()
+  const [isRegistering, setIsRegistering] = useState(false)
 
   return (
     <Flex justify='center' flex={1} align='center'>
@@ -45,8 +48,15 @@ const Login = () => {
         spacing={4}
       >
         <Heading textAlign='center' as='h3' size='lg'>
-          {t('auth.login')}
+          {isRegistering ? t('auth.register') : t('auth.login')}
         </Heading>
+        <Divider />
+
+        <AuthForm isRegistering={isRegistering} />
+        <Link onClick={() => setIsRegistering(!isRegistering)}>
+          {isRegistering ? t('auth.login_link') : t('auth.register_link')}
+        </Link>
+
         <Divider />
         <VStack w='full'>
           {providers.map(({ title, icon, colorSchema }) => (
@@ -56,7 +66,9 @@ const Login = () => {
               colorScheme={colorSchema}
               key={title}
               as='a'
-              href={`https://admin.samenvvv.nl/connect/${title.toLowerCase()}`}
+              href={`${
+                process.env.REACT_APP_BACKEND_URL
+              }/connect/${title.toLowerCase()}`}
             >
               {t('auth.connect_to')} {title}
             </Button>

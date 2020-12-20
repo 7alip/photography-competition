@@ -1,18 +1,9 @@
 import React, { useEffect } from 'react'
-import {
-  Box,
-  Container,
-  Flex,
-  Heading,
-  Image,
-  SimpleGrid,
-} from '@chakra-ui/react'
+import { Box, Container, Image, SimpleGrid } from '@chakra-ui/react'
 import Axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { competitionsLoaded } from '../store/competition/actions'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-
-const url = 'https://admin.samenvvv.nl'
 
 const Test = () => {
   const { token, user } = useSelector(state => state.auth)
@@ -24,7 +15,7 @@ const Test = () => {
     const fetchImages = async () => {
       try {
         const res = await Axios.get(
-          `https://admin.samenvvv.nl/competitions?_sort=published_at:DESC`
+          `${process.env.REACT_APP_BACKEND_URL}/competitions?_sort=published_at:DESC`
           // { headers: { Authorization: `Bearer ${token}` } }
         )
 
@@ -51,7 +42,11 @@ const Test = () => {
               width='100%'
               height={200}
               objectFit='cover'
-              src={url + competition?.image?.url}
+              src={process.env.REACT_APP_BACKEND_URL + competition?.image?.url}
+              // src={
+              //   process.env.REACT_APP_BACKEND_URL +
+              //   competition?.image?.formats?.thumbnail[0]?.url
+              // }
             />
           </Box>
         ))}

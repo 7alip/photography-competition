@@ -21,7 +21,7 @@ const ThemeButton = ({ isDark, isReversed, icon, children, ...rest }) => {
       }}
       {...rest}
     >
-      {children || 'Giriş'}
+      {children}
     </Button>
   )
 }

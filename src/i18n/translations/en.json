@@ -2,11 +2,28 @@
   "translation": {
     "hello": "Hello",
     "terms": "Terms and Conditions",
+    "email_confirmed": "Email confirmed!",
+    "cookie": {
+      "title": "Cookies",
+      "description": "We are using analytics cookies in the website.",
+      "button": "Accept"
+    },
     "auth": {
       "login": "Login",
+      "login_link": "Click for loggining in",
+      "register": "Register",
+      "register_link": "Click for registering",
       "logout": "Logout",
       "connect_to": "Connect to",
-      "warning": "If you have already logged in before, please use the same provider."
+      "warning": "If you have already logged in before, please use the same provider.",
+      "confirmed": {
+        "title": "Your account is not confirmed",
+        "description": "Click on the verification link in your e-mail box"
+      },
+      "invalid": {
+        "title": "Login failed!",
+        "description": "Email or password is not correct or the account doesn't exist"
+      }
     },
     "request_apply": "I want to apply",
     "request_voting": "I want to vote",
@@ -19,12 +36,26 @@
       "photo": "Photo",
       "accept": "I read and accept terms and conditions",
       "apply": "Apply",
+      "email": "Email",
+      "username": "Username",
+      "password": "Password",
+      "email_taken": {
+        "title": "Email is already taken",
+        "description": "Please try logging in again with the same provider you did before"
+      },
       "errors": {
         "name_required": "Full name is required",
         "title_required": "Photo title is required",
         "accept_required": "Please confirm",
-        "photo_required": "Please pick a photo"
+        "photo_required": "Please pick a photo",
+        "email_required": "Email is required",
+        "email_invalid": "E-mailadres is invalid",
+        "password_required": "Wachtwoord is required"
       }
+    },
+    "register_success": {
+      "title": "Email has been sent!",
+      "description": "Click on the verification link in your e-mail box"
     },
     "session_error": {
       "title": "Authentication Error!",

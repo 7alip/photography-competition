@@ -2,11 +2,28 @@
   "translation": {
     "hello": "Merhaba",
     "terms": "Hüküm ve Koşullar",
+    "email_confirmed": "Hesabiniz dogrulandi!",
+    "cookie": {
+      "title": "Cerezler",
+      "description": "Web sitemizde analitik cerezleri kullanilmaktadir.",
+      "button": "Kabul et"
+    },
     "auth": {
       "login": "Giriş",
+      "login_link": "Giriş için tıklayın",
+      "register": "Kaydol",
+      "register_link": "Kaydolmak için tıklayın",
       "logout": "Çıkış",
       "connect_to": "Giriş",
-      "warning": "Daha önce giriş yaptıysanız, lütfen aynı sağlayıcıyı kullanın."
+      "warning": "Daha önce giriş yaptıysanız, lütfen aynı sağlayıcıyı kullanın.",
+      "confirmed": {
+        "title": "Hesabiniz dogrulanmamis",
+        "description": "Eposta adresinize gelen doğrulama linkine tıklayınız."
+      },
+      "invalid": {
+        "title": "Giris yapilamadi",
+        "description": "Eposta adresiniz veya sifreniz yanlis ya da boyle bir hesap bulunamadi"
+      }
     },
     "request_apply": "Başvuru yapmak istiyorum",
     "request_voting": "Oy vermek istiyorum",
@@ -19,12 +36,26 @@
       "photo": "Fotoğraf",
       "accept": "Katılım şartlarını okudum ve kabul ediyorum",
       "apply": "Başvur",
+      "email": "Eposta",
+      "username": "Kullanıcı Adı",
+      "password": "Parola",
+      "email_taken": {
+        "title": "Eposta adresi zaten kayıtlı",
+        "description": "Lütfen daha önce giriş yaptığınız yöntemle giriş yapmayı tekrar deneyin."
+      },
       "errors": {
-        "name_required": "Tam adinizi girmeniz zorunludur",
+        "name_required": "Tam adınızı girmeniz zorunludur",
         "title_required": "Fotoğraf başlığı belirtmeniz zorunludur",
         "accept_required": "Lütfen onaylayınız",
-        "photo_required": "Lütfen bir fotoğraf seçiniz"
+        "photo_required": "Lütfen bir fotoğraf seçiniz",
+        "email_required": "Eposta alanını girmeniz zorunludur",
+        "email_invalid": "Geçerli bir eposta adresi giriniz",
+        "password_required": "Parola girmeniz zorunludur"
       }
+    },
+    "register_success": {
+      "title": "Eposta Gönderildi!",
+      "description": "Eposta adresinize gelen doğrulama linkine tıklayınız."
     },
     "session_error": {
       "title": "Yetki Hatası",

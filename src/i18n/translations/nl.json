@@ -2,11 +2,28 @@
   "translation": {
     "hello": "Hallo",
     "terms": "Termen en Voorwaarden",
+    "email_confirmed": "Email bevestigd!",
+    "cookie": {
+      "title": "Cookies",
+      "description": "We gebruiken analytische cookies op de website.",
+      "button": "Akkoord"
+    },
     "auth": {
       "login": "Inloggen",
+      "login_link": "Klik om in te loggen",
+      "register": "Registeren",
+      "register_link": "Klik om te registeren",
       "logout": "Uitloggen",
       "connect_to": "Verbinden aan",
-      "warning": "Indien u al eerder bent ingelogd, gebruik dan dezelfde provider."
+      "warning": "Indien u al eerder bent ingelogd, gebruik dan dezelfde provider.",
+      "confirmed": {
+        "title": "Uw account is niet bevestigd",
+        "description": "Klik op de verificatielink in uw e-mailbox"
+      },
+      "invalid": {
+        "title": "Inloggen mislukt!",
+        "description": "E-mailadres of wachtwoord is niet correct of het account bestaat niet"
+      }
     },
     "request_apply": "Ik wil me aanmelden",
     "request_voting": "Ik wil stemmen",
@@ -19,12 +36,26 @@
       "photo": "Foto",
       "accept": "Ik heb de algemene voorwaarden gelezen en geaccepteerd",
       "apply": "Aanmelden",
+      "email": "Email",
+      "username": "Gebruikersnaam",
+      "password": "Wachtwoord",
+      "email_taken": {
+        "title": "Email is al in gebruik",
+        "description": "Probeer opnieuw in te loggen met dezelfde provider als voorheen."
+      },
       "errors": {
         "name_required": "Volledige naam is vereist",
         "title_required": "Foto titel is vereist",
         "accept_required": "Bevestig alstublieft",
-        "photo_required": "Kies een foto"
+        "photo_required": "Kies een foto",
+        "email_required": "Email is vereist",
+        "email_invalid": "E-mailadres is ongeldig",
+        "password_required": "Wachtwoord is vereist"
       }
+    },
+    "register_success": {
+      "title": "Email is verzonden!",
+      "description": "Klik op de verificatielink in uw e-mailbox"
     },
     "session_error": {
       "title": "Authenticatiefout!",
