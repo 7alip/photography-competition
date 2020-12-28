@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { ChakraProvider } from '@chakra-ui/react'
+import SimpleReactLightbox from 'simple-react-lightbox-pro'
 
 import './i18n'
 import App from './App'
@@ -12,9 +13,11 @@ import * as serviceWorker from './serviceWorker'
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ChakraProvider theme={theme}>
-        <App />
-      </ChakraProvider>
+      <SimpleReactLightbox>
+        <ChakraProvider theme={theme}>
+          <App />
+        </ChakraProvider>
+      </SimpleReactLightbox>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
