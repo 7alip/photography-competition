@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import {
-  Button,
   Drawer,
   DrawerBody,
   DrawerContent,
@@ -8,7 +7,6 @@ import {
   DrawerOverlay,
   Flex,
   Text,
-  toast,
   useDisclosure,
 } from '@chakra-ui/react'
 import GoogleAnalytics from 'react-ga'

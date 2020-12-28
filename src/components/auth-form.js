@@ -12,7 +12,6 @@ import { useHistory } from 'react-router-dom'
 
 const AuthForm = ({ isRegistering }) => {
   const [isLoading, setIsLoading] = useState(false)
-  const [emailSent, setEmailSent] = useState(false)
   const toast = useToast()
   const dispatch = useDispatch()
   const history = useHistory()

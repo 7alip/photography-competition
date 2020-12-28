@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Heading, Image, VStack } from '@chakra-ui/react'
+import { Heading, Image, VStack } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import ThemeButton from '../components/theme-button'
 import { useTranslation } from 'react-i18next'
